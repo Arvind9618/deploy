@@ -31,11 +31,3 @@ stages:
               Contents: 'dev'
               TargetFolder: '\\$(resourceName)\c$'  # Replace with your VM's path
 
-          - task: AzureCLI@2
-            inputs:
-              azureSubscription: $(azureSubscription)
-              scriptType: 'bash'
-              scriptLocation: 'inlineScript'
-              inlineScript: |
-                # Example: Restart a service on the VM
-                az vm run-command invoke --resource-group YourResourceGroup --name $(resourceName) --command-id RunPowerShellScript --scripts "Restart-Service SomeService"
